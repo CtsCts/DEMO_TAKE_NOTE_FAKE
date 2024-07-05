@@ -3,6 +3,7 @@ package com.example.demoviewmodel;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -48,8 +49,14 @@ public class NoteListActivity extends AppCompatActivity implements NoteAdapter.O
         intent.putExtra("note_text", note.getTextNote());
         intent.putExtra("check_box", note.isImportant());
         intent.putExtra("check_box_text", note.getTxtCheckBox());
-
+        Toast.makeText(this, "It will be fixed and advance soon", Toast.LENGTH_SHORT).show();
 //        intent.putExtra("note_drawing", note.getDrawing());
         startActivity(intent);
+
+    }
+
+    @Override
+    public void onNoteOption() {
+        Toast.makeText(this, "It feature will be coming soon by lack of time advanced", Toast.LENGTH_SHORT).show();
     }
 }

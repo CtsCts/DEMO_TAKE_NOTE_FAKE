@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         byte[] drawingBytes = Converters.fromBitmapToByte(drawing);
 
         if (textNote.isEmpty() && textCheckBox.isEmpty() && !isImportant && drawingBytes.length == 0) {
+            Toast.makeText(this, "Note can't be saved due to empty all info", Toast.LENGTH_SHORT).show();
             return;
         }
 

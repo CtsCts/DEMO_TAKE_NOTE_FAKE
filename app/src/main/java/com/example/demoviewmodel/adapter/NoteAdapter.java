@@ -66,6 +66,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                 mNoteListener.get().onNoteEdit(currentNote);
             }
         });
+
+        holder.optionImg.setOnClickListener(view -> {
+            if (null != mNoteListener) {
+                mNoteListener.get().onNoteOption();
+            }
+        });
     }
 
     @Override
@@ -97,6 +103,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         private final ImageView noteImageView;
         private final ImageView deleteImg;
         private final ImageView editImg;
+        private final ImageView optionImg;
 
 
         public NoteViewHolder(@NonNull View itemView) {
@@ -107,6 +114,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             noteImageView = itemView.findViewById(R.id.noteImageView);
             deleteImg = itemView.findViewById(R.id.delete_img);
             editImg = itemView.findViewById(R.id.edit_img);
+            optionImg = itemView.findViewById(R.id.option_img);
         }
     }
 
@@ -114,5 +122,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         void onNoteDelete(int position);
 
         void onNoteEdit(Note note);
+
+        void onNoteOption();
     }
 }
